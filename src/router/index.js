@@ -1,22 +1,30 @@
+// This is a PURE JAVASCRIPT FILE
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+// step 1 - import (you can use .vue or NOT, it doesn't matter Javascript is smart)
+import MenuPage from '@/views/MenuPage'
+import ContactPage from '@/views/ContactPage'
+import ReservationsPage from '@/views/ReservationsPage'
 
 Vue.use(VueRouter)
 
 const routes = [
+  // register the route by adding to Routes Array
+  // minimum to specify is the Path (what does user have to type into browser in order to show this)
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    // "/" = root
+    path : "/",
+    // 2nd specify component:
+    component: MenuPage
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: "/contact-us",
+    component: ContactPage
+  },
+  {
+    path: "/reservations",
+    component: ReservationsPage
   }
 ]
 
